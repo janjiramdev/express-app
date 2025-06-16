@@ -1,0 +1,30 @@
+{
+  "name": "my-express-app",
+  "description": "This project create for my express app with ExpressJS and JavaScript",
+  "version": "1.0.0",
+  "author": "Janjira Mosamai",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start:dev": "npx nodemon src/index.js",
+    "lint": "eslint . --ext .js"
+  },
+  "keywords": [],
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "eslint": "^9.29.0",
+    "globals": "^16.2.0",
+    "nodemon": "^3.1.10"
+  }
+}
