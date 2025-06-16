@@ -1,8 +1,8 @@
-# my-express-app
+# express-app
 
 ## Description
 
-This project create for my express app with ExpressJS and JavaScript
+This project create for express app with ExpressJS and JavaScript
 
 ## Prerequisite
 
@@ -29,7 +29,7 @@ $ npm run start:dev
 - ### Auth
 
   - Request [POST] /auth/register => Register user
-  - Request [POST] /auth/login => Login to system
+  - Request [POST] /auth/login => Login to application
   - Request [POST] /auth/refresh => Refresh authentication tokens
 
 - ### Users

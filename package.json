@@ -1,6 +1,6 @@
 {
-  "name": "my-express-app",
-  "description": "This project create for my express app with ExpressJS and JavaScript",
+  "name": "express-app",
+  "description": "This project create for express app with ExpressJS and JavaScript",
   "version": "1.0.0",
   "author": "Janjira Mosamai",
   "private": true,
