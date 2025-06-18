@@ -33,9 +33,9 @@ export const loginValidator = [
 ];
 
 export const refreshTokensValidator = [
-  body("refreshTokens")
+  body("refreshToken")
     .notEmpty()
-    .withMessage("refresh-tokens is required")
+    .withMessage("refreshToken is required")
     .isString()
-    .withMessage("refresh-tokens must be string")
+    .withMessage("refreshToken must be string")
 ];

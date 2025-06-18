@@ -20,6 +20,7 @@ router.post(
 router.post(
   "/refresh-tokens",
   validators.refreshTokensValidator,
+  requestValidator,
   authController.refreshTokens
 );
 
