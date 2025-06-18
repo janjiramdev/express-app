@@ -10,14 +10,14 @@ export default function authenticationGuard(req, res, next) {
   if (!authorization?.startsWith("Bearer"))
     return res.status(401).json({
       message: "jwt malformed",
-      statusCode: 401,
+      statusCode: 401
     });
 
   const token = authorization && authorization?.split(" ")[1];
   if (!token)
     return res.status(401).json({
       message: "jwt malformed",
-      statusCode: 401,
+      statusCode: 401
     });
 
   try {
@@ -35,7 +35,7 @@ export default function authenticationGuard(req, res, next) {
     logger.error(`authentication error: ${message}`);
     return res.status(statusCode).json({
       message,
-      statusCode,
+      statusCode
     });
   }
 }

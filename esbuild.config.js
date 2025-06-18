@@ -7,6 +7,6 @@ esbuild
     platform: "node",
     target: "node20",
     outdir: "dist",
-    sourcemap: true,
+    sourcemap: true
   })
   .catch(() => process.exit(1));

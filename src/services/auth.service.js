@@ -80,6 +80,6 @@ export const refreshTokens = async (refreshToken) => {
 
   return {
     accessToken: newAccessToken,
-    refreshToken: newRefreshToken,
+    refreshToken: newRefreshToken
   };
 };

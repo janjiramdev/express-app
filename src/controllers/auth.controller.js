@@ -19,7 +19,7 @@ export const register = async (req, res) => {
     logger.error(`register error: ${message}`);
     return res.status(statusCode).json({
       message,
-      statusCode,
+      statusCode
     });
   }
 };
@@ -36,7 +36,7 @@ export const login = async (req, res) => {
     logger.info(`login success for user with id: ${id}`);
     return res.status(200).json({
       accessToken,
-      refreshToken,
+      refreshToken
     });
   } catch (err) {
     const message = err.message ?? JSON.stringify(err);
@@ -45,7 +45,7 @@ export const login = async (req, res) => {
     logger.error(`login error: ${message}`);
     return res.status(statusCode).json({
       message,
-      statusCode,
+      statusCode
     });
   }
 };
@@ -66,7 +66,7 @@ export const refreshTokens = async (req, res) => {
     logger.error(`refreshTokens error: ${message}`);
     return res.status(statusCode).json({
       message,
-      statusCode,
+      statusCode
     });
   }
 };

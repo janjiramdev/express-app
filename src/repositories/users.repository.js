@@ -39,7 +39,7 @@ export const createUser = async (username, password) => {
   const createdUser = {
     id: String(users.length + 1),
     username,
-    password,
+    password
   };
   users.push(createdUser);
 

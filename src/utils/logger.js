@@ -9,11 +9,11 @@ export default function createLogger(context = "ExpressApplication") {
         return `${timestamp} [${level}] [${context}]: ${message}`;
       })
     ),
-    transports: [new winston.transports.Console()],
+    transports: [new winston.transports.Console()]
   });
 
   return {
     info: (message) => logger.info(message),
-    error: (message) => logger.error(message),
+    error: (message) => logger.error(message)
   };
 }

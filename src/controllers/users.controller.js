@@ -20,7 +20,7 @@ export const getProfile = async (req, res) => {
     logger.error(`getProfile error: ${message}`);
     return res.status(statusCode).json({
       message,
-      statusCode,
+      statusCode
     });
   }
 };

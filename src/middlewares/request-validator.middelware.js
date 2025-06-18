@@ -6,7 +6,7 @@ export default function requestValidator(req, res, next) {
   if (!errors.isEmpty())
     return res.status(400).json({
       message: errors.array().map((err) => err.msg),
-      statusCode: 400,
+      statusCode: 400
     });
 
   next();
