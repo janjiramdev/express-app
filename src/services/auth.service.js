@@ -44,7 +44,7 @@ export const login = async (username, password) => {
   const hashedRefreshToken = await bcrypt.hash(refreshToken, 10);
   await usersService.updateUserRefreshToken(user.id, hashedRefreshToken);
 
-  return { id: user.id, accessToken, refreshToken };
+  return { accessToken, refreshToken };
 };
 
 export const refreshTokens = async (refreshToken) => {

@@ -36,11 +36,7 @@ export const createUser = async (username, password) => {
   // Mockup process time
   await new Promise((resolve) => setTimeout(resolve, 250));
 
-  const createdUser = {
-    id: String(users.length + 1),
-    username,
-    password
-  };
+  const createdUser = { id: String(users.length + 1), username, password };
   users.push(createdUser);
 
   return createdUser;

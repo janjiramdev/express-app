@@ -8,17 +8,11 @@ const logger = new createLogger("AuthenticationGuard");
 export default function authenticationGuard(req, res, next) {
   const authorization = req.headers.authorization;
   if (!authorization?.startsWith("Bearer"))
-    return res.status(401).json({
-      message: "jwt malformed",
-      statusCode: 401
-    });
+    return res.status(401).json({ message: "jwt malformed", statusCode: 401 });
 
   const token = authorization && authorization?.split(" ")[1];
   if (!token)
-    return res.status(401).json({
-      message: "jwt malformed",
-      statusCode: 401
-    });
+    return res.status(401).json({ message: "jwt malformed", statusCode: 401 });
 
   try {
     const decodedToken = jwt.verify(
@@ -33,9 +27,6 @@ export default function authenticationGuard(req, res, next) {
     if (middlewareConstant.jwtErrorList.includes(message)) statusCode = 401;
 
     logger.error(`authentication error: ${message}`);
-    return res.status(statusCode).json({
-      message,
-      statusCode
-    });
+    return res.status(statusCode).json({ message, statusCode });
   }
 }

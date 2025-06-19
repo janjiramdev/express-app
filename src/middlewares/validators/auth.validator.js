@@ -6,8 +6,10 @@ export const registerValidator = [
     .withMessage("username is required")
     .isString()
     .withMessage("username must be string")
-    .isLength({ min: 2 })
-    .withMessage("username must be at least 2 characters"),
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z]).{4,12}$/)
+    .withMessage(
+      "username must contain at least one uppercase, at least one lowercase and total length must be between 4 to 12 characters"
+    ),
   body("password")
     .notEmpty()
     .withMessage("password is required")
