@@ -1,11 +1,11 @@
 import jwt from "jsonwebtoken";
 import config from "../configs/index.config.js";
 import * as middlewareConstant from "../constants/middleware.constant.js";
-import createLogger from "../utils/logger.js";
+import createLogger from "../utils/logger.util.js";
 
-const logger = new createLogger("AuthenticationGuard");
+const logger = createLogger("Authentication");
 
-export default function authenticationGuard(req, res, next) {
+export default (req, res, next) => {
   const authorization = req.headers.authorization;
   if (!authorization?.startsWith("Bearer"))
     return res.status(401).json({ message: "jwt malformed", statusCode: 401 });
@@ -29,4 +29,4 @@ export default function authenticationGuard(req, res, next) {
     logger.error(`authentication error: ${message}`);
     return res.status(statusCode).json({ message, statusCode });
   }
-}
+};
