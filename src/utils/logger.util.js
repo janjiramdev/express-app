@@ -1,6 +1,6 @@
 import winston from "winston";
 
-export default function createLogger(context = "ExpressApplication") {
+export default (context = "ExpressApplication") => {
   const logger = winston.createLogger({
     level: "debug",
     format: winston.format.combine(
@@ -16,4 +16,4 @@ export default function createLogger(context = "ExpressApplication") {
     info: (message) => logger.info(message),
     error: (message) => logger.error(message)
   };
-}
+};
