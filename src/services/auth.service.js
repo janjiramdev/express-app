@@ -2,13 +2,18 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import config from "../configs/index.config.js";
 import * as usersService from "../services/users.service.js";
+import {
+  BadRequestException,
+  ConflictException,
+  NotFoundException
+} from "../utils/exceptions.util.js";
 
 export const register = async (username, password) => {
   const existingUser = await usersService.findOneByUsername(username);
   if (existingUser) {
-    const error = new Error(`user with username: ${username} already exits`);
-    error.statusCode = 409;
-    throw error;
+    throw new ConflictException(
+      `user with username: ${username} already exists`
+    );
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -18,16 +23,12 @@ export const register = async (username, password) => {
 export const login = async (username, password) => {
   const user = await usersService.findOneByUsername(username);
   if (!user) {
-    const error = new Error(`user with username: ${username} not found`);
-    error.statusCode = 404;
-    throw error;
+    throw new NotFoundException(`user with username: ${username} not found`);
   }
 
   const isPasswordMatch = await bcrypt.compare(password, user.password);
   if (!isPasswordMatch) {
-    const error = new Error("incorrect password");
-    error.statusCode = 400;
-    throw error;
+    throw new BadRequestException("incorrect password");
   }
 
   const accessToken = jwt.sign(
@@ -59,9 +60,7 @@ export const refreshTokens = async (refreshToken) => {
     user.refreshToken
   );
   if (!isRefreshTokenMatch) {
-    const error = new Error("incorrect refreshToken");
-    error.statusCode = 400;
-    throw error;
+    throw new BadRequestException("incorrect refreshToken");
   }
 
   const newAccessToken = jwt.sign(

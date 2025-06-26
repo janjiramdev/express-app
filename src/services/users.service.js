@@ -1,11 +1,10 @@
 import * as usersRepository from "../repositories/users.repository.js";
+import { NotFoundException } from "../utils/exceptions.util.js";
 
 export const findOneById = async (id) => {
   const user = await usersRepository.findUserById(id);
   if (!user) {
-    const error = new Error(`user with id: ${id} not found`);
-    error.statusCode = 404;
-    throw error;
+    throw new NotFoundException(`user with id: ${id} not found`);
   }
   return user;
 };
